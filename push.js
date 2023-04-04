@@ -1,7 +1,12 @@
 const push = require("web-push");
 
 //console.log(webpush.generateVAPIDKeys());
-
+console.log(
+  JSON.stringify({
+    title: "Test push message from DevTools. Title",
+    body: "Body",
+  })
+);
 let vapidKeys = {
   publicKey:
     "BDdbxet2Hvry2a3_fmk9kvg7lWlpGf6lWgIyVAfMy8H40hpXVyOq5pxRTk1mc79Nrkn5yROztVFOsBITcWGy29I",
@@ -23,4 +28,7 @@ let sub = {
     auth: "G5eFfX04fUozWLmR5XnVGQ",
   },
 };
-push.sendNotification(sub, "Hi");
+push.sendNotification(
+  sub,
+  '{"title":"Test push message from DevTools. Title","body":"Body"}'
+);
