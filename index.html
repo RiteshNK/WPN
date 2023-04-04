@@ -3,5 +3,11 @@
   <body>
     <button onclick="send()">register</button>
     <script src="client.js"></script>
+    <script>
+      addEventListener("load", async () => {
+        const register = await navigator.serviceWorker.register("./worker.js");
+        console.log("register", register);
+      });
+    </script>
   </body>
 </html>
