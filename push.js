@@ -32,7 +32,7 @@ async function x() {
   const res = await push
     .sendNotification(
       sub,
-      '{"title":"Test push message from DevTools. Title","body":"Body", "url": "https://www.google.com"}'
+      '{"title":"est push message from DevTools. Title","body":"Body", "url": "https://www.google.com"}'
     )
     .then((res) => {
       console.log("Response", res);
