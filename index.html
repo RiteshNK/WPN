@@ -5,8 +5,12 @@
     <script src="client.js"></script>
     <script>
       addEventListener("load", async () => {
-        const register = await navigator.serviceWorker.register("./worker.js");
-        console.log("register", register);
+        if (!(await navigator.serviceWorker.ready)) {
+          const register = await navigator.serviceWorker.register(
+            "./worker.js"
+          );
+          console.log("register", register);
+        }
       });
     </script>
   </body>
