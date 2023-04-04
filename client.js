@@ -17,7 +17,7 @@ let vapidKeys = {
 
 async function send() {
   console.log("Register clicked");
-  let sw = navigator.serviceWorker.ready;
+  let sw = await navigator.serviceWorker.ready;
   const subscription = await sw.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: vapidKeys.publicKey,
