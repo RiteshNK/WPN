@@ -5,6 +5,7 @@ self.addEventListener("push", (e) => {
   e.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
+      URL: data.url,
     })
   );
 });

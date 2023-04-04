@@ -20,15 +20,23 @@ push.setVapidDetails(
 );
 let sub = {
   endpoint:
-    "https://fcm.googleapis.com/fcm/send/eETTdpFnpiE:APA91bGTauHMGkT-U3flsRH4K5GkQHlDf8wtnp_LZIemQfc4H5xtI_dviINBCEqs3YRLxWuY1XXHRurROxGb_QUEezheOTAG0WkhISskh1CiRJL2KtGDm3mWVsew-E8eDJ3mVCHBl24p",
+    "https://fcm.googleapis.com/fcm/send/cuMGgiVfXEQ:APA91bFyXc1XERU2p3z0y43oNKN5GG6CA26igwHgLRrOAsV0IWs6Sbr7Oa14MZh6q3E4AGBXAREJpjMhu3nvwHWtEuaMm3lGH5vn8hjxIrMpn2zoHj57cumHclmw1T66tF85PEWdK_8v",
   expirationTime: null,
   keys: {
     p256dh:
-      "BN_goeWW6k25usYpmafkxcyHbXPUBsCLg-h9jouCYWv4kDKCY_FkaTG53SpLkxzdUmL2IklLN0VB98VyjOSk7Zg",
-    auth: "G5eFfX04fUozWLmR5XnVGQ",
+      "BL0ZRruatyyBg0ckNrLofC8Ix3Tc_Q3Vxcn0_fRWDoAJT8CTRchtKVHMTalIoAmNHFNMu4ZJAj0N3LjBSmxYMwM",
+    auth: "CIwdnG2G1ru2quQGf14_jg",
   },
 };
-push.sendNotification(
-  sub,
-  '{"title":"Test push message from DevTools. Title","body":"Body"}'
-);
+async function x() {
+  const res = await push
+    .sendNotification(
+      sub,
+      '{"title":"Test push message from DevTools. Title","body":"Body", "url": "https://www.google.com"}'
+    )
+    .then((res) => {
+      console.log("Response", res);
+    })
+    .catch((err) => console.log("Error", err));
+}
+x();
