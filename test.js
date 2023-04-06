@@ -20,23 +20,23 @@ push.setVapidDetails(
 );
 let sub = {
   endpoint:
-    "https://fcm.googleapis.com/fcm/send/eyLKfdvp5Pg:APA91bEKISIdphEisyVJWHaOLdS0A-eo0lB7VWlhLP7XJU6JSlijOznQKv3IrZeK-d_vnRvqQC7Y0hOrb5j-wsb65kG2q6UYthwxB2AZchycdKMnyB8Bctvl-SapAP1ofwV6wVlnQQkE",
+    "https://fcm.googleapis.com/fcm/send/fGLN2Ix83KA:APA91bG41AUWSEcf87ZDW8tYJaqzIVC1tZC5kKclqiWYlYAwd400I-wEhdPh1wTJRlgP9RdPH-Tzt8EWRK341KFjfniEE-DCVTkM9pLSl0JGlurQmpB1iwj_yVPllgtlz3s1VcRDIMo9",
   expirationTime: null,
   keys: {
     p256dh:
-      "BAq9H2lZi5cAWRMtMc5V6wy7A0I8Y0wX2OEhRw8FOKgO-VyWENGIuIjEisZ7HEHzJip6PHVInGjg0pDdRgSg5yI",
-    auth: "QcwJ_TQROVc-kOBdpFmZAw",
+      "BG0zun2r-zS5v8gUrTkhhVTf6ZD-FDBcua_drGporw68TxrS2RbVdhcz-9MqFaeur3EfOyUUludXe9G6QRl2zZI",
+    auth: "dl80MPPROC_WG19v1uuHQA",
   },
 };
 async function x() {
-  const res = await push
-    .sendNotification(
+  try {
+    const res = await push.sendNotification(
       sub,
       '{"title":"est push message from DevTools. Title","body":"Body", "url": "https://www.google.com"}'
-    )
-    .then((res) => {
-      console.log("Response", res);
-    })
-    .catch((err) => console.log("Error", err.statusCode));
+    );
+    console.log("Response", res);
+  } catch (e) {
+    console.log("error ", e);
+  }
 }
 x();
