@@ -37,3 +37,5 @@ function urlBase64ToUint8Array(base64String) {
   }
   return outputArray;
 }
+
+console.log(urlBase64ToUint8Array(vapidKeys.publicKey));

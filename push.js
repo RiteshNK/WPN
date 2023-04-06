@@ -20,20 +20,23 @@ push.setVapidDetails(
 );
 let sub = {
   endpoint:
-    "https://fcm.googleapis.com/fcm/send/eyLKfdvp5Pg:APA91bEKISIdphEisyVJWHaOLdS0A-eo0lB7VWlhLP7XJU6JSlijOznQKv3IrZeK-d_vnRvqQC7Y0hOrb5j-wsb65kG2q6UYthwxB2AZchycdKMnyB8Bctvl-SapAP1ofwV6wVlnQQkE",
+    "https://fcm.googleapis.com/fcm/send/ce3g8sVcDsA:APA91bEzSLABZfJjcIc0PYzLORvJ9K39SpDr---HmGkhQLFVArlL4-8dtCFES3RPGRe1w_lw9OyR6N1LTh9yd4puQOOsmkNVvWWDwFF2W54CAY3pKIBHpZ7dHaleJI_O-CgcOspVBgpe",
   expirationTime: null,
   keys: {
     p256dh:
-      "BAq9H2lZi5cAWRMtMc5V6wy7A0I8Y0wX2OEhRw8FOKgO-VyWENGIuIjEisZ7HEHzJip6PHVInGjg0pDdRgSg5yI",
-    auth: "QcwJ_TQROVc-kOBdpFmZAw",
+      "BLgEd1U7gOHrp9rPrDrRCXV-VPAzZlhISSsPR49vBHPbuRl27b4g4qoo4wscwAU6H39ewGN56eeDMP8j953z1oM",
+    auth: "HmDhH12pb8On4BjMc8Gg8g",
   },
 };
 async function x() {
+  const options = {
+    title: "Vibration Sample",
+    body: "Buzz! Buzz!",
+    url: "https://www.google.com",
+    icon: "https://dbsweb-u03-www.dbs.com.sg/iwov-resources/media/images/Marketplaces/cpo/header_dbsmarketplace.png",
+  };
   const res = await push
-    .sendNotification(
-      sub,
-      '{"title":"est push message from DevTools. Title","body":"Body", "url": "https://www.google.com"}'
-    )
+    .sendNotification(sub, JSON.stringify(options))
     .then((res) => {
       console.log("Response", res);
     })
